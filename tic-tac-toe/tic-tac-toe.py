@@ -8,10 +8,14 @@ def ticTacToe():
         boardDisplay(positions)
 
 
-        print(player, "\'s turn, please input 1-9 to select position")
+        print(player, "\'s turn, please input 1-9 to select position:")
         move = input()
-        positions[int(move)-1] = player
-        
+        if positions[int(move)-1] == " ":
+            positions[int(move)-1] = player
+        else:
+            print("Place already Take!")
+            continue
+
         winState = tallyWin(move, player, winState)
 
         if int(30) in winState:
